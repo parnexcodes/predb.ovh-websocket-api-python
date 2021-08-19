@@ -25,6 +25,10 @@ Set `ENABLE_TELEGRAM = "True"` and Update `TG_BOT_TOKEN`, `CHANNEL_ID` if you wa
 
 `python predb-live.py`
 
+or
+
+`python predb-live-categories.py` to show category of pre.
+
 # LICENSE
 
 See [LICENSE](https://github.com/parnexcodes/predb.ovh-websocket-api-python/blob/main/LICENSE)

@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# This script was made by parnex.
+# Use this if you care about pre time since it will post pre faster.
+# Use predb-live-categories.py if you want to post pre along with category. (slow)
 
 import asyncio
 import websockets
@@ -34,11 +37,6 @@ async def get_pre():
         async with websockets.connect(uri) as websocket:
             response = await websocket.recv()
             response_json = json.loads(response)
-
-            # Ignore if you don't care about categories
-            # The reason I used ['action'] == 'insert' is because this way , you get the pre faster.
-            # If you change ['action'] == 'insert' to ['row']['name'] != 'PRE' and make another variable for category ['row']['cat'] to include the category , it won't be fastest.
-            # as predb.ovh lists 'PRE' category as first when posting on websocket, then updates it to category like 'GAMES' after a few seconds (The pre will be posted late when printing it as you are waiting for it update the category.)
 
             if response_json['action'] == 'insert':
                 pre = response_json['row']['name']

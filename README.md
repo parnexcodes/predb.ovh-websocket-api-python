@@ -22,6 +22,7 @@ Set `ENABLE_TELEGRAM = "True"` and Update `TG_BOT_TOKEN`, `CHANNEL_ID` if you wa
 # Run
 
 `pip install -r requirements.txt`
+
 `python predb-live.py`
 
 # LICENSE

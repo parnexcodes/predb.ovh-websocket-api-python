@@ -39,6 +39,7 @@ async def get_pre():
             response = await websocket.recv()
             response_json = json.loads(response)
 
+            # Set response_json['row']['cat'] != 'PRE' to response_json['row']['cat'] == 'GAMES' to post releases of a specific category only.
             if response_json['row']['cat'] != 'PRE':
                 pre = response_json['row']['name']
                 cat = response_json['row']['cat']

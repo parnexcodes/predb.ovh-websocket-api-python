@@ -63,7 +63,7 @@ async def get_pre():
                                 async with session.get(tg_post):
                                     pass
                             except:
-                                print("Couldn't post to Discord. Configure the .env file.")
+                                print("Couldn't post to Telegram. Configure the .env file.")
                 lastname = pre_with_cat
 
 asyncio.get_event_loop().run_until_complete(get_pre())

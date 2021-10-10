@@ -9,8 +9,13 @@ import json
 import platform
 import os
 import aiohttp
+import ssl
 from datetime import datetime
 from rich import print
+
+ssl_context = ssl.SSLContext()
+ssl_context.check_hostname = False
+ssl_context.verify_mode = ssl.CERT_NONE
 
 try:
     TG_BOT_TOKEN = os.environ['TG_BOT_TOKEN']
@@ -34,7 +39,7 @@ print(f"Running on: {platform.system()} {platform.release()} ({os.name})")
 async def get_pre():
     while True:
         uri = "wss://predb.ovh/api/v1/ws"
-        async with websockets.connect(uri) as websocket:
+        async with websockets.connect(uri, ssl=ssl_context) as websocket:
             response = await websocket.recv()
             response_json = json.loads(response)
 
